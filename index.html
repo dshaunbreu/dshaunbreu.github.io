@@ -1,0 +1,1266 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9l1爆料_视频爆料合集_网络热点追踪</title>
+<meta name="description" content="9l1爆料聚焦网络视频爆料与热点追踪，提供最新爆料条目、事件时间线、深度解析、社区评论与相关资讯，适合关注网络动态与视频内容的人查看。">
+<meta name="keywords" content="视频爆料合集,网络热点追踪,爆料事件解析,社区讨论,热点时间线">
+<style>
+:root{
+  --bg:#0d0f14;
+  --bg-soft:#141821;
+  --panel:#1a1f2b;
+  --panel-2:#212736;
+  --line:#2b3242;
+  --line-soft:#232a38;
+  --text:#e8ecf4;
+  --text-2:#a9b3c6;
+  --text-3:#78849b;
+  --brand:#ff5a3c;
+  --brand-2:#ff8a3d;
+  --accent:#3dc9ff;
+  --accent-2:#7c5cff;
+  --ok:#3ddc97;
+  --warn:#ffc94d;
+  --radius:14px;
+  --radius-sm:9px;
+  --radius-lg:22px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --shadow-sm:0 4px 14px rgba(0,0,0,.25);
+  --head-h:64px;
+  --ann-h:42px;
+  --max:1340px;
+  --gap:22px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font);font-size:15px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.3}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+::selection{background:rgba(255,90,60,.35)}
+
+/* ---------- 吸顶公告条 ---------- */
+.announce{
+  position:sticky;top:0;z-index:60;
+  height:var(--ann-h);background:linear-gradient(90deg,#2a1408,#3a1a0c 45%,#241206);
+  border-bottom:1px solid rgba(255,138,61,.25);
+  display:flex;align-items:center;overflow:hidden;
+}
+.announce-inner{
+  max-width:var(--max);margin:0 auto;padding:0 20px;width:100%;
+  display:flex;align-items:center;gap:12px;font-size:13px;color:#ffd9c2;
+}
+.announce-badge{
+  flex:0 0 auto;background:var(--brand);color:#fff;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:20px;letter-spacing:.5px;
+}
+.announce-ticker{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#ffcfb5}
+.announce-ticker b{color:#fff;font-weight:600}
+.announce-link{flex:0 0 auto;color:var(--brand-2);font-weight:600;font-size:12.5px}
+.announce-link:hover{text-decoration:underline}
+
+/* ---------- 页头 ---------- */
+.header{
+  position:sticky;top:var(--ann-h);z-index:55;
+  height:var(--head-h);background:rgba(13,15,20,.92);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:var(--max);margin:0 auto;padding:0 20px;height:100%;
+  display:flex;align-items:center;gap:26px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.brand-mark{width:34px;height:34px;flex:0 0 auto}
+.brand-text{font-size:19px;font-weight:800;letter-spacing:.5px}
+.brand-text em{font-style:normal;color:var(--brand)}
+.nav{display:flex;align-items:center;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  padding:8px 12px;border-radius:8px;font-size:14px;color:var(--text-2);
+  white-space:nowrap;transition:.18s;
+}
+.nav a:hover{color:var(--text);background:var(--panel)}
+.nav a.on{color:#fff;background:rgba(255,90,60,.15);box-shadow:inset 0 0 0 1px rgba(255,90,60,.35)}
+.header-actions{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.search{
+  display:flex;align-items:center;gap:6px;background:var(--panel);
+  border:1px solid var(--line);border-radius:10px;padding:6px 10px;width:200px;
+}
+.search input{
+  background:none;border:0;color:var(--text);font-size:13px;width:100%;outline:none;
+}
+.search input::placeholder{color:var(--text-3)}
+.search svg{flex:0 0 auto;color:var(--text-3)}
+.btn-ghost{
+  border:1px solid var(--line);background:var(--panel);color:var(--text-2);
+  padding:7px 14px;border-radius:9px;font-size:13px;transition:.18s;
+}
+.btn-ghost:hover{color:#fff;border-color:var(--brand)}
+.btn-solid{
+  border:0;background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff;padding:8px 16px;border-radius:9px;font-size:13px;font-weight:600;
+}
+.btn-solid:hover{filter:brightness(1.08)}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(900px 420px at 78% -10%,rgba(255,90,60,.20),transparent 65%),
+    radial-gradient(700px 380px at 12% 110%,rgba(61,201,255,.13),transparent 60%),
+    var(--bg-soft);
+}
+.hero-inner{
+  max-width:var(--max);margin:0 auto;padding:56px 20px 60px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--brand-2);
+  background:rgba(255,90,60,.12);border:1px solid rgba(255,90,60,.3);
+  padding:5px 12px;border-radius:20px;margin-bottom:18px;letter-spacing:.4px;
+}
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(255,90,60,.18)}
+.hero h1{
+  font-size:clamp(34px,4.4vw,54px);font-weight:900;letter-spacing:1px;
+  background:linear-gradient(100deg,#fff 25%,#ffb08a 60%,var(--brand) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{
+  margin-top:16px;font-size:16.5px;color:var(--text-2);max-width:560px;line-height:1.85;
+}
+.hero-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{
+  margin-top:34px;display:flex;gap:34px;flex-wrap:wrap;
+  padding-top:22px;border-top:1px solid var(--line-soft);
+}
+.hero-stats div strong{display:block;font-size:22px;color:#fff;font-weight:800}
+.hero-stats div span{font-size:12.5px;color:var(--text-3)}
+
+/* 首屏视觉：爆料信号面板 */
+.hero-visual{position:relative}
+.signal-card{
+  background:linear-gradient(160deg,var(--panel-2),#12161f);
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:20px;box-shadow:var(--shadow);
+}
+.signal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.signal-head b{font-size:13px;color:var(--text-2);letter-spacing:.5px}
+.signal-live{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ok)}
+.signal-live i{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(61,220,151,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(61,220,151,0)}}
+.wave{display:flex;align-items:flex-end;gap:3px;height:64px;margin-bottom:16px}
+.wave i{
+  flex:1;background:linear-gradient(180deg,var(--brand),rgba(255,90,60,.2));
+  border-radius:2px;animation:wv 2.4s ease-in-out infinite;
+}
+@keyframes wv{0%,100%{opacity:.45}50%{opacity:1}}
+.signal-list{display:flex;flex-direction:column;gap:9px}
+.signal-item{
+  display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);
+  border:1px solid var(--line-soft);border-radius:10px;padding:9px 12px;font-size:13px;
+}
+.signal-item .idx{color:var(--brand-2);font-weight:800;font-size:12px;width:22px;flex:0 0 auto}
+.signal-item .nm{flex:1;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.signal-item .tp{font-size:11px;color:var(--text-3);flex:0 0 auto}
+
+/* ---------- 布局 ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.layout{
+  display:grid;grid-template-columns:184px minmax(0,1fr) 272px;
+  gap:var(--gap);padding-top:30px;padding-bottom:50px;
+}
+.rail{position:sticky;top:calc(var(--ann-h) + var(--head-h) + 16px);align-self:start}
+.rail-title{
+  font-size:11.5px;letter-spacing:1.6px;color:var(--text-3);text-transform:uppercase;
+  margin:0 0 10px 4px;font-weight:700;
+}
+.channel-nav{display:flex;flex-direction:column;gap:3px}
+.channel-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 11px;border-radius:9px;font-size:13.5px;color:var(--text-2);transition:.16s;
+}
+.channel-nav a:hover{background:var(--panel);color:#fff}
+.channel-nav a.on{background:rgba(255,90,60,.13);color:#fff;font-weight:600;box-shadow:inset 2px 0 0 var(--brand)}
+.channel-nav a .cnt{font-size:11px;color:var(--text-3)}
+
+.side-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;margin-bottom:16px;
+}
+.side-card h3{font-size:13.5px;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.side-card h3::before{content:"";width:3px;height:13px;border-radius:2px;background:var(--brand)}
+.rank-list{display:flex;flex-direction:column;gap:10px}
+.rank-item{display:flex;gap:10px;align-items:flex-start;font-size:13px}
+.rank-item .no{
+  flex:0 0 auto;width:19px;height:19px;border-radius:5px;font-size:11px;font-weight:800;
+  display:grid;place-items:center;background:var(--panel-2);color:var(--text-3);
+}
+.rank-item:nth-child(1) .no{background:var(--brand);color:#fff}
+.rank-item:nth-child(2) .no{background:var(--brand-2);color:#fff}
+.rank-item:nth-child(3) .no{background:var(--warn);color:#2a1f00}
+.rank-item .txt{flex:1;min-width:0}
+.rank-item .txt b{display:block;font-weight:600;font-size:13px;color:var(--text);line-height:1.45}
+.rank-item .txt span{font-size:11.5px;color:var(--text-3)}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{position:relative;padding:0 0 16px 16px;border-left:1px solid var(--line)}
+.tl-item:last-child{padding-bottom:0;border-left-color:transparent}
+.tl-item::before{
+  content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;
+  background:var(--brand);box-shadow:0 0 0 3px rgba(255,90,60,.16);
+}
+.tl-item time{font-size:11px;color:var(--text-3);display:block}
+.tl-item p{font-size:12.5px;color:var(--text-2);line-height:1.6;margin-top:2px}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:7px}
+.tag-cloud a{
+  font-size:12px;padding:4px 10px;border-radius:20px;background:var(--panel-2);
+  color:var(--text-2);border:1px solid var(--line-soft);transition:.16s;
+}
+.tag-cloud a:hover{color:#fff;border-color:var(--brand);background:rgba(255,90,60,.15)}
+
+/* ---------- 主内容通用 ---------- */
+.sec{margin-bottom:46px;scroll-margin-top:calc(var(--ann-h) + var(--head-h) + 14px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.sec-head h2{font-size:21px;font-weight:800;display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:"";width:4px;height:20px;border-radius:2px;background:linear-gradient(180deg,var(--brand),var(--brand-2))}
+.sec-head p{font-size:13px;color:var(--text-3);margin-top:5px}
+.sec-more{font-size:12.5px;color:var(--text-3);white-space:nowrap}
+.sec-more:hover{color:var(--brand-2)}
+
+/* 概览 */
+.overview{
+  background:linear-gradient(160deg,var(--panel),#141922);
+  border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;
+}
+.overview p{color:var(--text-2);font-size:14.5px;line-height:1.9;margin-bottom:13px}
+.overview p:last-child{margin-bottom:0}
+.overview strong{color:var(--text);font-weight:600}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.2s;
+}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,90,60,.45);box-shadow:var(--shadow-sm)}
+.card-img{position:relative;aspect-ratio:4/3;background:var(--panel-2)}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.card-img .badge{
+  position:absolute;top:9px;left:9px;background:rgba(13,15,20,.82);
+  backdrop-filter:blur(6px);color:#fff;font-size:11px;padding:3px 9px;border-radius:20px;
+  border:1px solid rgba(255,255,255,.14);
+}
+.card-img .hot{
+  position:absolute;bottom:9px;right:9px;background:rgba(255,90,60,.92);color:#fff;
+  font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;
+}
+.card-body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card-body h3{font-size:15px;font-weight:700;line-height:1.45}
+.card-body .desc{font-size:12.8px;color:var(--text-2);line-height:1.7;flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  font-size:11px;padding:2px 8px;border-radius:5px;
+  background:rgba(61,201,255,.10);color:#8fdcff;border:1px solid rgba(61,201,255,.22);
+}
+.chip.b{background:rgba(255,90,60,.11);color:#ffab94;border-color:rgba(255,90,60,.25)}
+.chip.g{background:rgba(61,220,151,.10);color:#8ff0c4;border-color:rgba(61,220,151,.22)}
+.card-meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--text-3);padding-top:3px;border-top:1px dashed var(--line-soft)}
+
+/* 动态列表 */
+.update-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 26px}
+.update-item{
+  display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line-soft);align-items:flex-start;
+}
+.update-item time{flex:0 0 auto;font-size:11.5px;color:var(--brand-2);width:64px;padding-top:2px;font-variant-numeric:tabular-nums}
+.update-item .body{flex:1;min-width:0}
+.update-item .body b{font-size:13.8px;font-weight:600;display:block;line-height:1.5}
+.update-item .body span{font-size:12.5px;color:var(--text-3);line-height:1.6;display:block;margin-top:2px}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat{
+  display:flex;flex-direction:column;gap:5px;padding:15px 16px;border-radius:var(--radius-sm);
+  background:var(--panel);border:1px solid var(--line);transition:.18s;
+}
+.cat:hover{border-color:var(--brand);background:var(--panel-2);transform:translateY(-2px)}
+.cat b{font-size:14.5px;font-weight:700}
+.cat span{font-size:11.5px;color:var(--text-3);line-height:1.5}
+.cat em{font-style:normal;font-size:11px;color:var(--brand-2);margin-top:3px}
+
+/* 深度解析 */
+.deep{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 30px;
+}
+.deep h2{margin-bottom:6px}
+.deep .lead{color:var(--text-2);font-size:14.5px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--line-soft)}
+.deep h3{font-size:16.5px;font-weight:700;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:9px}
+.deep h3::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--brand);transform:rotate(45deg)}
+.deep h3:first-of-type{margin-top:0}
+.deep p{color:var(--text-2);font-size:14.3px;line-height:1.95;margin-bottom:12px}
+.deep ul{margin:8px 0 16px;display:flex;flex-direction:column;gap:8px}
+.deep ul li{
+  position:relative;padding-left:18px;font-size:14px;color:var(--text-2);line-height:1.8;
+}
+.deep ul li::before{content:"";position:absolute;left:2px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--brand-2)}
+.deep ul li b{color:var(--text);font-weight:600}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 18px}
+.compare-box{background:var(--panel-2);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:15px 16px}
+.compare-box h4{font-size:13.5px;margin-bottom:8px;color:var(--accent)}
+.compare-box p{font-size:13px;margin:0;line-height:1.8}
+
+/* 体验指南 步骤 */
+.steps{display:flex;flex-direction:column;gap:0;counter-reset:st}
+.step{
+  display:flex;gap:16px;padding:18px 0;border-bottom:1px dashed var(--line-soft);
+}
+.step:last-child{border-bottom:0}
+.step .num{
+  flex:0 0 auto;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(255,90,60,.22),rgba(255,138,61,.10));
+  color:var(--brand-2);font-weight:800;font-size:14px;border:1px solid rgba(255,90,60,.3);
+}
+.step .txt b{display:block;font-size:14.5px;font-weight:700;margin-bottom:4px}
+.step .txt p{font-size:13.2px;color:var(--text-2);line-height:1.75}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+details{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:0 18px;transition:.18s;
+}
+details[open]{border-color:rgba(255,90,60,.4);background:var(--panel-2)}
+summary{
+  padding:15px 0;font-size:14.2px;font-weight:600;cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";flex:0 0 auto;font-size:18px;color:var(--brand-2);font-weight:400;line-height:1;
+}
+details[open] summary::after{content:"−"}
+details p{padding:0 0 16px;font-size:13.5px;color:var(--text-2);line-height:1.85}
+
+/* 评论 */
+.comment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:14px 16px;
+}
+.comment .top{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.avatar{
+  width:28px;height:28px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#fff;
+}
+.comment .who{flex:1;min-width:0}
+.comment .who b{font-size:12.8px;display:block;line-height:1.3}
+.comment .who span{font-size:10.5px;color:var(--text-3)}
+.comment p{font-size:13px;color:var(--text-2);line-height:1.75}
+.comment .ref{font-size:11.5px;color:var(--accent);margin-top:7px;display:inline-block}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:0}
+.news-item{
+  display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--line-soft);align-items:flex-start;
+}
+.news-item:first-child{padding-top:0}
+.news-item:last-child{border-bottom:0;padding-bottom:0}
+.news-item .date{
+  flex:0 0 auto;font-size:11.5px;color:var(--text-3);width:74px;padding-top:2px;
+  font-variant-numeric:tabular-nums;
+}
+.news-item .body b{font-size:14.2px;font-weight:600;display:block;line-height:1.55}
+.news-item .body b:hover{color:var(--brand-2)}
+.news-item .body p{font-size:12.8px;color:var(--text-3);line-height:1.7;margin-top:3px}
+
+/* 相关推荐 标签索引 */
+.related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.rel-item{
+  display:flex;align-items:center;gap:11px;background:var(--panel);
+  border:1px solid var(--line);border-radius:10px;padding:11px 14px;transition:.16s;
+}
+.rel-item:hover{border-color:var(--brand);background:var(--panel-2)}
+.rel-item .k{
+  flex:0 0 auto;font-size:10.5px;font-weight:700;color:var(--brand-2);
+  background:rgba(255,90,60,.12);border-radius:5px;padding:2px 7px;
+}
+.rel-item .n{font-size:13.2px;flex:1;min-width:0}
+.rel-item .n span{display:block;font-size:11px;color:var(--text-3)}
+
+/* 榜单 / 时间线 补充 */
+.board{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+}
+.board-row{
+  display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line-soft);
+}
+.board-row:last-child{border-bottom:0;padding-bottom:0}
+.board-row .rk{
+  flex:0 0 auto;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+  font-size:12.5px;font-weight:800;background:var(--panel-2);color:var(--text-3);
+}
+.board-row:nth-child(1) .rk{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff}
+.board-row:nth-child(2) .rk{background:var(--warn);color:#2a1f00}
+.board-row:nth-child(3) .rk{background:rgba(61,201,255,.3);color:#bdeeff}
+.board-row .info{flex:1;min-width:0}
+.board-row .info b{font-size:14px;display:block;line-height:1.5}
+.board-row .info span{font-size:12px;color:var(--text-3)}
+.board-row .heat{flex:0 0 auto;font-size:12px;color:var(--brand-2);font-variant-numeric:tabular-nums}
+
+/* 搜索无结果 */
+.no-result{
+  display:none;padding:34px 20px;text-align:center;color:var(--text-3);
+  background:var(--panel);border:1px dashed var(--line);border-radius:var(--radius);font-size:14px;
+}
+.no-result.show{display:block}
+
+/* ---------- 页尾 ---------- */
+.footer{border-top:1px solid var(--line);background:var(--bg-soft);margin-top:20px}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:44px 20px 26px}
+.footer-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:34px;padding-bottom:30px;border-bottom:1px solid var(--line-soft)}
+.footer-brand{display:flex;flex-direction:column;gap:12px}
+.footer-brand .brand-text{font-size:20px}
+.footer-brand p{font-size:13px;color:var(--text-3);line-height:1.85;max-width:290px}
+.footer-col h4{font-size:13px;color:var(--text);margin-bottom:12px;font-weight:700}
+.footer-col a{display:block;font-size:12.8px;color:var(--text-3);padding:4px 0;transition:.15s}
+.footer-col a:hover{color:var(--brand-2)}
+.footer-bottom{
+  padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:12px;color:var(--text-3);line-height:1.8;
+}
+.footer-bottom .note{max-width:640px}
+
+@media (max-width:1100px){
+  .layout{grid-template-columns:170px minmax(0,1fr);}
+  .layout .side{grid-column:1 / -1;}
+  .rail{position:static}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-inner{grid-template-columns:1fr;gap:34px}
+  .hero-visual{max-width:520px}
+}
+@media (max-width:1024px){
+  .nav{order:3;flex-basis:100%;}
+  .header-inner{flex-wrap:wrap;height:auto;padding:10px 20px;gap:12px}
+  .header{position:sticky}
+  .layout{grid-template-columns:1fr}
+  .layout .side{grid-column:auto}
+  .rail{order:0}
+  .channel-nav{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px}
+  .channel-nav a{white-space:nowrap;box-shadow:none!important}
+  .channel-nav a.on{box-shadow:inset 0 -2px 0 var(--brand)!important}
+  .channel-nav a .cnt{display:none}
+}
+@media (max-width:860px){
+  .update-list{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .comment-grid{grid-template-columns:1fr}
+  .related{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:26px}
+}
+@media (max-width:740px){
+  :root{--head-h:auto}
+  .announce-ticker{font-size:12px}
+  .search{width:100%;order:4;flex-basis:100%}
+  .header-actions{flex:1}
+  .hero-inner{padding:36px 16px 42px}
+  .wrap{padding:0 16px}
+  .card-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:1fr}
+  .deep{padding:20px 18px}
+  .footer-top{grid-template-columns:1fr}
+  .hero-stats{gap:22px}
+  .sec{margin-bottom:36px}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce" role="region" aria-label="站内更新公告">
+  <div class="announce-inner">
+    <span class="announce-badge">今日更新</span>
+    <span class="announce-ticker">11 月 25 日新增 <b>14 条</b>爆料档案，「城南夜市噪音争议」跟进第 3 条 · 「校园食堂价格表」原片已上架 · 本周新增 <b>6 个</b>事件时间线</span>
+    <a class="announce-link" href="/#updates">查看全部更新 →</a>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="/#top" aria-label="9l1爆料 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="37" height="37" rx="11" fill="#1a1f2b" stroke="#ff5a3c" stroke-width="1.6"/>
+        <path d="M11 27V15.5l5.4 6.6 5.6-6.6V27" stroke="#ff8a3d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="28" cy="16" r="2.6" fill="#ff5a3c"/>
+        <path d="M24.5 24.5h6.5" stroke="#3dc9ff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-text">9l1<em>爆料</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="/#overview" class="on">爆料总览</a>
+      <a href="/#featured">精选档案</a>
+      <a href="/#updates">最新动态</a>
+      <a href="/#cats">分类频道</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">观看路径</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#comments">社区评论</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        <input id="searchInput" type="search" placeholder="搜条目 / 事件 / 类型" aria-label="站内搜索爆料条目">
+      </div>
+      <a class="btn-ghost" href="/#updates">订阅更新</a>
+    </div>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag"><i class="dot"></i>视频爆料 · 实时追踪 · 社区共建</span>
+      <h1>9l1爆料</h1>
+      <p class="hero-sub">把网络上一闪而过的视频线索整理成可回看的档案：事件起因、原片出处、时间线节点与后续回应，都在同一条目下对齐，方便你判断哪一条值得追到底。</p>
+      <div class="hero-actions">
+        <a class="btn-solid" href="/#featured">浏览精选档案</a>
+        <a class="btn-ghost" href="/#updates">看今天新增</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>3,842</strong><span>在库爆料条目</span></div>
+        <div><strong>14</strong><span>今日新增档案</span></div>
+        <div><strong>96</strong><span>本周事件时间线</span></div>
+        <div><strong>11-25</strong><span>最近核查日期</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="signal-card">
+        <div class="signal-head">
+          <b>今日爆料信号流</b>
+          <span class="signal-live"><i></i>实时入库</span>
+        </div>
+        <div class="wave" aria-hidden="true">
+          <i style="height:34%;animation-delay:0s"></i><i style="height:62%;animation-delay:.12s"></i>
+          <i style="height:88%;animation-delay:.24s"></i><i style="height:46%;animation-delay:.36s"></i>
+          <i style="height:70%;animation-delay:.48s"></i><i style="height:100%;animation-delay:.6s"></i>
+          <i style="height:54%;animation-delay:.72s"></i><i style="height:80%;animation-delay:.84s"></i>
+          <i style="height:38%;animation-delay:.96s"></i><i style="height:66%;animation-delay:1.08s"></i>
+          <i style="height:92%;animation-delay:1.2s"></i><i style="height:50%;animation-delay:1.32s"></i>
+          <i style="height:74%;animation-delay:1.44s"></i><i style="height:42%;animation-delay:1.56s"></i>
+        </div>
+        <div class="signal-list">
+          <div class="signal-item"><span class="idx">01</span><span class="nm">城南夜市噪音争议</span><span class="tp">跟进中</span></div>
+          <div class="signal-item"><span class="idx">02</span><span class="nm">老街改造施工视频</span><span class="tp">已核实</span></div>
+          <div class="signal-item"><span class="idx">03</span><span class="nm">校园食堂价格表原片</span><span class="tp">新入库</span></div>
+          <div class="signal-item"><span class="idx">04</span><span class="nm">地铁末班车延时通知</span><span class="tp">待补充</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 主体三栏 -->
+<div class="wrap">
+  <div class="layout">
+
+    <!-- 左频道索引 -->
+    <aside class="rail" aria-label="频道索引">
+      <p class="rail-title">频道索引</p>
+      <nav class="channel-nav">
+        <a href="/#overview" class="on">全部爆料<span class="cnt">3842</span></a>
+        <a href="/#cats">城市现场<span class="cnt">612</span></a>
+        <a href="/#cats">校园话题<span class="cnt">488</span></a>
+        <a href="/#cats">消费维权<span class="cnt">437</span></a>
+        <a href="/#cats">交通出行<span class="cnt">391</span></a>
+        <a href="/#cats">职场记录<span class="cnt">356</span></a>
+        <a href="/#cats">商业争议<span class="cnt">302</span></a>
+        <a href="/#cats">辟谣核查<span class="cnt">274</span></a>
+        <a href="/#cats">社区讨论<span class="cnt">231</span></a>
+        <a href="/#cats">后续回应<span class="cnt">198</span></a>
+      </nav>
+    </aside>
+
+    <!-- 中主内容 -->
+    <main>
+
+      <!-- 1 概览 -->
+      <section class="sec" id="overview">
+        <div class="sec-head">
+          <div>
+            <h2>爆料领域概览：视频线索如何变成可回看的档案</h2>
+            <p>先弄清一个条目由什么构成，再决定要不要花时间追完</p>
+          </div>
+        </div>
+        <div class="overview">
+          <p>9l1爆料处理的不是"热搜碎片"，而是一段视频从出现到沉淀的完整链路。一条线索通常包含四层内容：<strong>原片出处</strong>（最先发布的账号、拍摄时间与地点）、<strong>事实骨架</strong>（画面里能直接确认的部分）、<strong>争议点</strong>（评论区吵得最凶但尚未证实的地方）、<strong>后续回应</strong>（当事人、物业、学校或属地部门的公开说法）。四层齐全的条目才进入"已核实"序列，缺层的会标注"跟进中"或"待补充"。</p>
+          <p>当前内容大致分成九个方向。<strong>城市现场</strong>类最密集，集中在夜市、老旧小区、施工路段这些日常摩擦高发区；<strong>校园话题</strong>以食堂、宿舍、收费标准为主，传播速度快但反转率也高；<strong>消费维权</strong>偏向实拍小票、称重、账单对比，画面证据感强；<strong>交通出行</strong>多为末班车、限行、停车位纠纷；<strong>职场记录</strong>涉及排班表、离职沟通与工位监控争议；<strong>商业争议</strong>集中在预制菜、临期商品与门店服务；<strong>辟谣核查</strong>专门回收被误传的旧片与拼接视频；<strong>社区讨论</strong>聚合高热度评论的立场分布；<strong>后续回应</strong>只收录有正式答复的条目。</p>
+          <p>2026 年 11 月这一个月里，值得留意的变化是：跨城搬运的旧视频明显增多，多条 2024 年的素材被重新剪辑后以"最新"名义传播，辟谣核查频道的入库量因此比上月增加了约四成。另一个变化是当事人主动出镜回应的比例上升，很多条目在 48 小时内就有了第一轮说法，追更时不必只依赖二手转述。</p>
+          <p>如果你只想知道"今天有什么可看"，直接去最新动态；如果你想判断某个类型值不值得长期关注，深度解析里对五个高发类型做了逐项拆解；如果你已经看过某条视频但不确定真假，先在搜索框里输入条目名，命中记录里会标出核查状态与最近一次更新时间。</p>
+        </div>
+      </section>
+
+      <!-- 2 精选档案 -->
+      <section class="sec" id="featured">
+        <div class="sec-head">
+          <div>
+            <h2>精选爆料档案</h2>
+            <p>9 条近期证据链较完整的条目，按入库时间排列</p>
+          </div>
+          <span class="sec-more">共 3842 条档案</span>
+        </div>
+        <div class="card-grid" id="cardGrid">
+
+          <article class="card" data-key="城南夜市噪音争议 城市现场 跟进">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/nightmarket-noise31/400/300" width="400" height="300" loading="lazy" alt="城南夜市噪音争议现场视频封面">
+              <span class="badge">城市现场</span>
+              <span class="hot">热度 9.4</span>
+            </div>
+            <div class="card-body">
+              <h3>城南夜市噪音争议</h3>
+              <p class="desc">连续三晚的现场录音显示音量峰值集中在 22 时后，条目已附上分贝记录截图与物业沟通记录，第 3 条跟进说明了摊位调整方案。</p>
+              <div class="chips"><span class="chip b">噪音纠纷</span><span class="chip">现场录音</span><span class="chip g">已核实</span></div>
+              <div class="card-meta"><span>11-25 更新</span><span>1.2 万次查看</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="校园食堂价格表 校园话题 收费">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/schoolcanteen-price22/400/300" width="400" height="300" loading="lazy" alt="校园食堂价格表原片截图封面">
+              <span class="badge">校园话题</span>
+              <span class="hot">热度 9.1</span>
+            </div>
+            <div class="card-body">
+              <h3>校园食堂价格表原片</h3>
+              <p class="desc">原片完整保留了打饭窗口与价目牌的同框画面，能逐项核对单价。条目补充了同校三个食堂的横向对比，价差集中在荤菜档。</p>
+              <div class="chips"><span class="chip b">校园收费</span><span class="chip">价目对比</span><span class="chip g">原片完整</span></div>
+              <div class="card-meta"><span>11-25 更新</span><span>9860 次查看</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="老街改造施工视频 城市现场 施工">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/oldstreet-build18/400/300" width="400" height="300" loading="lazy" alt="老街改造施工围挡视频封面">
+              <span class="badge">城市现场</span>
+              <span class="hot">热度 8.7</span>
+            </div>
+            <div class="card-body">
+              <h3>老街改造施工围挡</h3>
+              <p class="desc">视频记录了围挡占道后的人行通道宽度，实测最窄处不足一米。条目附上了施工公示牌照片与工期起止日期。</p>
+              <div class="chips"><span class="chip b">施工占道</span><span class="chip">实测画面</span><span class="chip g">已核实</span></div>
+              <div class="card-meta"><span>11-24 更新</span><span>7420 次查看</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="超市称重缺斤少两 消费维权 称重">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/market-weigh45/400/300" width="400" height="300" loading="lazy" alt="超市称重缺斤少两复称视频封面">
+              <span class="badge">消费维权</span>
+              <span class="hot">热度 8.9</span>
+            </div>
+            <div class="card-body">
+              <h3>超市称重缺斤少两复称</h3>
+              <p class="desc">两条独立拍摄的复称视频指向同一台电子秤，误差稳定在 30 克上下。条目整理了小票时间与称重时刻的对应关系。</p>
+              <div class="chips"><span class="chip b">复称对比</span><span class="chip">小票证据</span><span class="chip g">交叉核实</span></div>
+              <div class="card-meta"><span>11-23 更新</span><span>1.5 万次查看</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="地铁末班车延时通知 交通出行 末班车">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/metro-lasttrain09/400/300" width="400" height="300" loading="lazy" alt="地铁末班车延时通知截图封面">
+              <span class="badge">交通出行</span>
+              <span class="hot">热度 8.3</span>
+            </div>
+            <div class="card-body">
+              <h3>地铁末班车延时通知</h3>
+              <p class="desc">站内广播录音与官方公告截图存在时间差，条目按分钟还原了两个版本的说法，并标注了实际末班车发车时刻。</p>
+              <div class="chips"><span class="chip b">末班车</span><span class="chip">公告比对</span><span class="chip">待补充</span></div>
+              <div class="card-meta"><span>11-22 更新</span><span>6310 次查看</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="预制菜门店标识争议 商业争议 预制菜">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/premade-food27/400/300" width="400" height="300" loading="lazy" alt="预制菜门店标识争议视频封面">
+              <span class="badge">商业争议</span>
+              <span class="hot">热度 8.6</span>
+            </div>
+            <div class="card-body">
+              <h3>预制菜门店标识争议</h3>
+              <p class="desc">探店视频拍到后厨拆袋画面，与门店"现炒"宣传语形成对照。条目补充了该品牌在三个城市门店的标识差异。</p>
+              <div class="chips"><span class="chip b">预制菜</span><span class="chip">后厨实拍</span><span class="chip g">已核实</span></div>
+              <div class="card-meta"><span>11-21 更新</span><span>2.1 万次查看</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="排班表争议 职场记录 排班">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/shift-schedule14/400/300" width="400" height="300" loading="lazy" alt="排班表争议聊天记录封面">
+              <span class="badge">职场记录</span>
+              <span class="hot">热度 8.0</span>
+            </div>
+            <div class="card-body">
+              <h3>排班表连续夜班争议</h3>
+              <p class="desc">聊天记录与纸质排班表互相印证，连续夜班天数可逐日核对。条目整理了两个版本排班表的差异位置。</p>
+              <div class="chips"><span class="chip b">排班争议</span><span class="chip">聊天记录</span><span class="chip">跟进中</span></div>
+              <div class="card-meta"><span>11-20 更新</span><span>5280 次查看</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="旧片新传核查 辟谣核查 拼接视频">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/debunk-oldclip53/400/300" width="400" height="300" loading="lazy" alt="旧片新传核查比对画面封面">
+              <span class="badge">辟谣核查</span>
+              <span class="hot">热度 8.4</span>
+            </div>
+            <div class="card-body">
+              <h3>旧片新传核查：暴雨积水视频</h3>
+              <p class="desc">同一段积水画面在四个账号下以不同城市名义出现，条目按画面细节定位到原始拍摄年份，并列出转发路径。</p>
+              <div class="chips"><span class="chip b">拼接视频</span><span class="chip">溯源比对</span><span class="chip g">已辟谣</span></div>
+              <div class="card-meta"><span>11-19 更新</span><span>1.1 万次查看</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="小区停车位纠纷 交通出行 停车">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/parking-dispute38/400/300" width="400" height="300" loading="lazy" alt="小区停车位纠纷现场视频封面">
+              <span class="badge">交通出行</span>
+              <span class="hot">热度 7.9</span>
+            </div>
+            <div class="card-body">
+              <h3>小区停车位划线纠纷</h3>
+              <p class="desc">视频拍到新划车位压占消防通道转弯半径，条目附上规划图与实地测量结果，两处数据基本吻合。</p>
+              <div class="chips"><span class="chip b">停车纠纷</span><span class="chip">实地测量</span><span class="chip g">已核实</span></div>
+              <div class="card-meta"><span>11-18 更新</span><span>4690 次查看</span></div>
+            </div>
+          </article>
+
+        </div>
+        <div class="no-result" id="noResult">没有匹配的爆料条目，换个关键词试试，例如「食堂」「夜市」「末班车」。</div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="sec" id="updates">
+        <div class="sec-head">
+          <div>
+            <h2>最新更新与动态</h2>
+            <p>11 月 25 日当天入库与跟进的条目</p>
+          </div>
+          <span class="sec-more">每日 09:00 / 18:00 两次汇总</span>
+        </div>
+        <div class="update-list">
+          <div class="update-item"><time>今天 18:20</time><div class="body"><b>城南夜市噪音争议</b><span>第 3 条跟进上线，附摊位调整后的晚间录音。</span></div></div>
+          <div class="update-item"><time>今天 17:05</time><div class="body"><b>校园食堂价格表原片</b><span>补入同校第二食堂价目牌，荤菜档差 2 元。</span></div></div>
+          <div class="update-item"><time>今天 15:40</time><div class="body"><b>预制菜门店标识争议</b><span>第三个城市门店回应已归档，标识已更换。</span></div></div>
+          <div class="update-item"><time>今天 14:12</time><div class="body"><b>旧片新传核查：暴雨积水视频</b><span>确认原始拍摄年份为 2023 年，转发路径补全。</span></div></div>
+          <div class="update-item"><time>今天 11:30</time><div class="body"><b>地铁末班车延时通知</b><span>广播录音降噪版上架，时间差缩短到 40 秒。</span></div></div>
+          <div class="update-item"><time>今天 10:05</time><div class="body"><b>小区停车位划线纠纷</b><span>新增规划图对照，转弯半径实测 3.8 米。</span></div></div>
+          <div class="update-item"><time>昨天 21:10</time><div class="body"><b>超市称重缺斤少两复称</b><span>第三位顾客复称视频入库，误差一致。</span></div></div>
+          <div class="update-item"><time>昨天 19:45</time><div class="body"><b>排班表连续夜班争议</b><span>纸质排班表扫描件补齐，连续 6 天可核对。</span></div></div>
+          <div class="update-item"><time>11 月 24 日</time><div class="body"><b>老街改造施工围挡</b><span>施工公示牌照片更新，工期延至 12 月 8 日。</span></div></div>
+          <div class="update-item"><time>11 月 23 日</time><div class="body"><b>临期商品折扣标签争议</b><span>新条目入库，货架标签与系统价差已截图。</span></div></div>
+          <div class="update-item"><time>11 月 22 日</time><div class="body"><b>工位监控角度争议</b><span>办公室平面图补入，摄像头覆盖范围标注完成。</span></div></div>
+          <div class="update-item"><time>11 月 21 日</time><div class="body"><b>外卖餐盒缺件纠纷</b><span>开箱视频与订单截图对应，缺件位置明确。</span></div></div>
+        </div>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="sec" id="cats">
+        <div class="sec-head">
+          <div>
+            <h2>分类频道</h2>
+            <p>按你关心的场景进入，每个频道只收同类型条目</p>
+          </div>
+        </div>
+        <div class="cat-grid">
+          <a class="cat" href="/#featured"><b>城市现场</b><span>夜市、施工、小区公共空间摩擦</span><em>612 条</em></a>
+          <a class="cat" href="/#featured"><b>校园话题</b><span>食堂、宿舍、收费标准与校内通知</span><em>488 条</em></a>
+          <a class="cat" href="/#featured"><b>消费维权</b><span>称重、账单、临期标签与售后</span><em>437 条</em></a>
+          <a class="cat" href="/#featured"><b>交通出行</b><span>末班车、停车位、限行与道路施工</span><em>391 条</em></a>
+          <a class="cat" href="/#featured"><b>职场记录</b><span>排班表、离职沟通与工位监控</span><em>356 条</em></a>
+          <a class="cat" href="/#featured"><b>商业争议</b><span>预制菜、门店服务与宣传口径</span><em>302 条</em></a>
+          <a class="cat" href="/#featured"><b>辟谣核查</b><span>旧片新传、拼接视频与错误归属</span><em>274 条</em></a>
+          <a class="cat" href="/#comments"><b>社区讨论</b><span>高热度评论的立场分布与追问</span><em>231 条</em></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="sec" id="deep">
+        <div class="deep">
+          <h2>深度解析：五类高发爆料的判断维度</h2>
+          <p class="lead">同样是短视频，不同类型的可信度和追更方式差别很大。下面按城市现场、校园话题、消费维权、辟谣核查、后续回应五个方向，拆开讲清楚该看哪里、哪里最容易出偏差。</p>
+
+          <h3>城市现场类：画面之外的空间信息才是关键</h3>
+          <p>夜市噪音、施工占道、停车位划线，这类条目的共同点是"争议发生在固定空间里"。看这类视频，第一遍容易被声音和情绪带走，但真正决定结论的是画面里不显眼的空间信息：通道还剩多宽、围挡延伸到哪里、摄像头朝向哪一侧。</p>
+          <p>比较可靠的做法是把视频暂停在远景帧，逐项确认三件事：拍摄点位是否在争议区域内部、镜头有没有明显广角变形、画面里是否有可对照的固定参照物（井盖、路灯编号、门牌）。三项都能对上，空间描述基本可信；缺一项就要在条目里标"待补充"。</p>
+          <ul>
+            <li><b>夜市噪音：</b>重点看录音设备位置与时间戳，手机贴近摊位和站在楼上窗边的读数能差 10 分贝以上。</li>
+            <li><b>施工占道：</b>看公示牌上的工期与围挡实际范围是否一致，超期施工比占道本身更容易被忽略。</li>
+            <li><b>停车纠纷：</b>看规划图与实地划线是否重合，消防通道转弯半径是最常见的争议点。</li>
+          </ul>
+
+          <h3>校园话题类：传播快，但反转率最高</h3>
+          <p>食堂价格、宿舍条件、收费标准这三类内容，往往在几小时内就能跨校传播。问题在于，同一张价目牌在不同校区的解释可能完全不同。判断时先分清"单点事实"和"整体结论"：单价是可核对的单点事实，而"收费偏高"是整体结论，需要横向样本才成立。</p>
+          <div class="compare">
+            <div class="compare-box">
+              <h4>可核对的单点事实</h4>
+              <p>价目牌数字、窗口编号、拍摄日期、同框的菜品分量。这些只要原片完整，基本不会有争议。</p>
+            </div>
+            <div class="compare-box">
+              <h4>需要样本的结论</h4>
+              <p>贵不贵、合不合理、是否普遍。这类判断至少要三个以上食堂或两个以上校区的数据，单条视频不足以支撑。</p>
+            </div>
+          </div>
+          <p>另一个高频偏差是时间错位。旧学年的价目牌被当作本学期素材重新发布的情况，在 11 月出现了至少四次。核查方式很直接：看价目牌的版式与字体，学校更换价目牌通常会同步调整版式，版式与当前公告不一致就值得怀疑。</p>
+
+          <h3>消费维权类：证据链比情绪更重要</h3>
+          <p>称重、账单、临期标签这三类条目，说服力几乎完全取决于证据链是否闭合。一条完整的复称记录应该包含：购买小票（含时间）、称重瞬间的连续画面、复称用的秤是否归零、两次称重的间隔时长。四项齐全，误差才有意义。</p>
+          <p>常见的断链方式是"只拍结果不拍过程"。画面直接从复称数字开始，中间缺少从货架到称台的连续性，这种素材只能作为线索，不能作为结论。9l1爆料在收录这类条目时，会把"过程完整"与"结果完整"分开标注，前者可信度明显更高。</p>
+          <ul>
+            <li><b>临期标签：</b>看标签贴纸是否覆盖了原打印日期，覆盖痕迹往往比价差本身更能说明问题。</li>
+            <li><b>账单争议：</b>看小票的流水号与门店编号是否同框，跨店对比时这一项最容易出错。</li>
+            <li><b>售后纠纷：</b>看沟通记录的时间连续性，跳段截图通常意味着中间有未展示的环节。</li>
+          </ul>
+
+          <h3>辟谣核查类：先定位原始帧，再谈结论</h3>
+          <p>旧片新传是本月增长最快的类型。同一段积水、火灾或人群画面，换一个城市名就能重新传播一轮。核查的核心不是"这条是不是假的"，而是"这段画面最早出现在什么时候、属于哪里"。</p>
+          <p>可行的定位顺序是：先找画面里最不容易改变的元素（建筑外立面、店招字体、路面材质），再用这些元素反查年份区间，最后用天气记录或同期新闻交叉验证。三步走完，多数拼接视频都能落到一个具体年份。9l1爆料的辟谣核查频道会把定位依据逐条列出，而不是只给一个"已辟谣"的标签。</p>
+
+          <h3>后续回应类：有答复不等于有结论</h3>
+          <p>当事人、物业、学校或属地部门的公开回应，是条目从"争议"走向"沉淀"的关键一步。但回应本身也分层次：口头表态、书面说明、实际整改，三者的分量完全不同。</p>
+          <ul>
+            <li><b>口头表态：</b>只能说明"已知悉"，不能作为事件结束的标志。</li>
+            <li><b>书面说明：</b>包含时间、责任方与具体措施，可信度明显提升。</li>
+            <li><b>实际整改：</b>有可验证的后续画面，例如围挡后撤、价目牌更换、排班表重排，这类条目才会进入"已核实"序列。</li>
+          </ul>
+          <p>追更时建议把这三个层次分开记，不要因为看到一句回应就停止关注。9l1爆料的条目页里，"回应状态"是一个独立字段，与"事实骨架"分开维护，正是为了避免把答复误当成结论。</p>
+        </div>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="sec" id="guide">
+        <div class="sec-head">
+          <div>
+            <h2>观看路径：先看什么，怎么判断值不值得追</h2>
+            <p>给第一次接触这类内容的人一条清晰的消费顺序</p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="num">01</span>
+            <div class="txt">
+              <b>先按场景选类型，不要从最热的条目开始</b>
+              <p>如果你关心的是自己生活里会遇到的事，从城市现场或消费维权入手更有效率；如果只是想了解网络传播现象，辟谣核查的阅读门槛最低，单条看完就能明白拼接视频是怎么被识破的。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">02</span>
+            <div class="txt">
+              <b>看条目先看状态标签，再看正文</b>
+              <p>"已核实""跟进中""待补充"三个状态决定了这条内容能信到什么程度。已核实的条目通常四层信息齐全，可以直接看结论；跟进中的建议只取事实骨架部分，争议点先放一放。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">03</span>
+            <div class="txt">
+              <b>用原片完整度筛掉一半低质素材</b>
+              <p>原片是否连续、有没有明显剪辑点、关键动作是否在画面内，这三项决定了一条视频值不值得花时间。剪辑痕迹重、关键帧缺失的条目，即使热度很高也建议跳过。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">04</span>
+            <div class="txt">
+              <b>同类条目横向比三条，再形成判断</b>
+              <p>单条视频容易受拍摄角度影响。比如称重争议，连续看三条不同门店的复称记录，就能大致判断误差是偶发还是系统性问题。横向对比比纵向深挖单条更有效。</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">05</span>
+            <div class="txt">
+              <b>关注后续回应，而不是停在争议本身</b>
+              <p>多数条目在 48 小时内会有第一轮回应。把"后续回应"频道当作收尾环节，能避免反复回看已经解决的争议，也能及时发现哪些条目其实一直没有实质答复。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="sec" id="faq">
+        <div class="sec-head">
+          <div>
+            <h2>常见问答</h2>
+            <p>关于条目类型、更新节奏与判断标准的六个高频问题</p>
+          </div>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>城市现场类的爆料一般多久会有后续？</summary>
+            <p>多数在 48 小时内出现第一轮回应，涉及物业或施工方的条目通常要 3 到 5 天。夜市噪音、停车划线这类需要现场测量的争议，跟进周期会更长，因为要等实测数据补齐。超过一周仍无回应的条目，会在状态栏标注"待补充"，不再计入已核实序列。</p>
+          </details>
+          <details>
+            <summary>校园食堂价格表和消费维权里的账单争议有什么区别？</summary>
+            <p>前者关注的是定价本身是否合理，需要横向样本，单张价目牌说明不了问题；后者关注的是实际收费与标价是否一致，属于单点事实，一张小票加一段复称画面就能核对。判断方法也不同：食堂看版式与学期，账单看流水号与称重连续性。</p>
+          </details>
+          <details>
+            <summary>第一次看这类内容，从哪个条目开始比较好？</summary>
+            <p>建议从辟谣核查频道的旧片新传条目入手。这类条目结构最清晰，会完整展示定位原始帧的过程，看完一遍就能掌握基本的核查思路。之后再去看城市现场或消费维权，会更容易分辨哪些画面是有效证据。</p>
+          </details>
+          <details>
+            <summary>怎么判断一条爆料视频是不是旧片重新发布？</summary>
+            <p>先看画面里最稳定的元素，比如建筑外立面、店招字体、路面材质，这些不容易随时间改变。再用这些元素反查年份区间，最后用天气记录或同期新闻交叉验证。如果视频里的季节特征与当前时间明显不符，基本可以判定为旧片。</p>
+          </details>
+          <details>
+            <summary>辟谣核查和后续回应这两个频道有什么不同？</summary>
+            <p>辟谣核查处理的是"画面归属错误"，重点在于把视频放回正确的年份和地点；后续回应处理的是"争议有没有答复"，重点在于责任方是否给出了书面说明或实际整改。前者解决真假，后者解决进度，两者经常出现在同一条目的不同阶段。</p>
+          </details>
+          <details>
+            <summary>职场记录类的排班表争议，通常看哪几个点？</summary>
+            <p>看三个地方：连续夜班的天数能否逐日核对、聊天记录与纸质排班表是否一致、排班调整有没有提前通知。三项里最容易被忽略的是第三项，很多争议其实不在于排班本身，而在于调整通知的时间是否合理。</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="sec" id="comments">
+        <div class="sec-head">
+          <div>
+            <h2>社区评论</h2>
+            <p>16 条围绕具体条目的讨论，含不同立场</p>
+          </div>
+        </div>
+        <div class="comment-grid">
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#ff5a3c">林</span><div class="who"><b>林间慢跑</b><span>11-25 18:42</span></div></div>
+            <p>城南夜市那条第 3 条跟进做得挺细，把调整前后的录音放一起对比，音量差别能直接听出来。</p>
+            <span class="ref"># 城南夜市噪音争议</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#3dc9ff">周</span><div class="who"><b>周末不加班</b><span>11-25 17:20</span></div></div>
+            <p>食堂价格表我看了两个校区的，荤菜差 2 元但分量也差不少，光看单价其实不太公平。</p>
+            <span class="ref"># 校园食堂价格表原片</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#7c5cff">陈</span><div class="who"><b>陈年旧胶片</b><span>11-25 16:05</span></div></div>
+            <p>暴雨积水那条辟谣做得扎实，连转发路径都列出来了，比只给一句"假的"有用得多。</p>
+            <span class="ref"># 旧片新传核查</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#3ddc97">吴</span><div class="who"><b>吴记小笼包</b><span>11-25 14:33</span></div></div>
+            <p>称重那条我持保留意见，复称的秤有没有归零画面里没拍清楚，误差 30 克也可能只是秤的问题。</p>
+            <span class="ref"># 超市称重缺斤少两复称</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#ffc94d;color:#2a1f00">赵</span><div class="who"><b>赵家老三</b><span>11-25 12:18</span></div></div>
+            <p>老街围挡那个实测挺有说服力，一米宽的人行道推婴儿车根本过不去，公示牌上完全没提。</p>
+            <span class="ref"># 老街改造施工围挡</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#ff8a3d">孙</span><div class="who"><b>孙小满</b><span>11-25 10:56</span></div></div>
+            <p>地铁末班车那条广播录音和公告差 40 秒，其实影响不大，但确实说明两边信息没同步。</p>
+            <span class="ref"># 地铁末班车延时通知</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#3dc9ff">李</span><div class="who"><b>李子树下</b><span>11-24 22:40</span></div></div>
+            <p>预制菜那个后厨拆袋画面挺关键，但只有一家门店，不能直接推到这个品牌所有店。</p>
+            <span class="ref"># 预制菜门店标识争议</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#7c5cff">郑</span><div class="who"><b>郑在输入</b><span>11-24 20:15</span></div></div>
+            <p>排班表那条聊天记录和纸质表能对上，连续六天夜班，这个强度确实值得讨论。</p>
+            <span class="ref"># 排班表连续夜班争议</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#ff5a3c">黄</span><div class="who"><b>黄浦江边</b><span>11-24 18:02</span></div></div>
+            <p>停车位那条的规划图对照很直观，转弯半径 3.8 米确实不达标，消防通道这块不能含糊。</p>
+            <span class="ref"># 小区停车位划线纠纷</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#3ddc97">何</span><div class="who"><b>何处不相逢</b><span>11-24 15:47</span></div></div>
+            <p>看了一圈，最需要的其实是那种跟进周期长的条目，很多事过两周就没人提了。</p>
+            <span class="ref"># 后续回应</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#ffc94d;color:#2a1f00">马</span><div class="who"><b>马路口修车</b><span>11-23 21:30</span></div></div>
+            <p>临期标签那个覆盖痕迹确实明显，但也要看是店员贴的还是供应商贴的，责任方不一样。</p>
+            <span class="ref"># 临期商品折扣标签争议</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#3dc9ff">徐</span><div class="who"><b>徐步慢行</b><span>11-23 19:08</span></div></div>
+            <p>工位监控那条平面图标注得很清楚，摄像头的覆盖范围其实比想象中要小。</p>
+            <span class="ref"># 工位监控角度争议</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#ff8a3d">胡</span><div class="who"><b>胡同口小卖部</b><span>11-23 16:22</span></div></div>
+            <p>外卖缺件那个开箱视频拍得完整，从封条到打开一气呵成，这种素材就很有参考价值。</p>
+            <span class="ref"># 外卖餐盒缺件纠纷</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#7c5cff">郭</span><div class="who"><b>郭外斜阳</b><span>11-22 22:05</span></div></div>
+            <p>校园话题这块反转太多了，上周还在传的一条这周就说是去年的，确实要谨慎。</p>
+            <span class="ref"># 校园话题</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#ff5a3c">罗</span><div class="who"><b>罗盘指针</b><span>11-22 18:50</span></div></div>
+            <p>辟谣核查频道是我看得最多的，结构清楚，不用自己再去翻一堆转发。</p>
+            <span class="ref"># 辟谣核查</span>
+          </div>
+          <div class="comment">
+            <div class="top"><span class="avatar" style="background:#3ddc97">高</span><div class="who"><b>高架桥下</b><span>11-21 20:14</span></div></div>
+            <p>建议城市现场类多收一些有实测数据的条目，光靠画面争论很难有结论。</p>
+            <span class="ref"># 城市现场</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="sec" id="news">
+        <div class="sec-head">
+          <div>
+            <h2>相关资讯</h2>
+            <p>11 月以来的条目上线与规则变化</p>
+          </div>
+        </div>
+        <div class="news-list">
+          <article class="news-item">
+            <time class="date">11-25</time>
+            <div class="body">
+              <b>「城南夜市噪音争议」追加第 3 条跟进，摊位调整方案落地</b>
+              <p>新增晚间录音与摊位位置图，音量峰值时段后移约 40 分钟，物业已确认三处摊位调整。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <time class="date">11-24</time>
+            <div class="body">
+              <b>辟谣核查频道本月入库量增加四成，旧片新传占多数</b>
+              <p>2024 年素材被重新剪辑后以"最新"名义传播的情况集中出现，核查流程已增加原始帧定位步骤。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <time class="date">11-22</time>
+            <div class="body">
+              <b>「校园食堂价格表原片」补入第二食堂价目牌，荤菜档差 2 元</b>
+              <p>同校两个食堂的价目牌版式不同，条目已标注各自适用学期，避免跨学期误读。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <time class="date">11-20</time>
+            <div class="body">
+              <b>消费维权类条目新增"过程完整"标注，与"结果完整"分开</b>
+              <p>复称、开箱等素材按证据链闭合程度分级，缺少连续画面的条目不再进入已核实序列。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <time class="date">11-18</time>
+            <div class="body">
+              <b>「小区停车位划线纠纷」实测数据公开，转弯半径 3.8 米</b>
+              <p>规划图与实地测量基本吻合，消防通道转弯半径低于常规要求，条目已附测量方法说明。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <time class="date">11-15</time>
+            <div class="body">
+              <b>后续回应频道上线"回应层次"字段，区分表态、说明与整改</b>
+              <p>口头表态不再作为事件收尾依据，只有书面说明或可验证整改才会更新条目状态。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="sec" id="related">
+        <div class="sec-head">
+          <div>
+            <h2>相关推荐</h2>
+            <p>延伸方向与具体条目索引</p>
+          </div>
+        </div>
+        <div class="related">
+          <a class="rel-item" href="/#featured"><span class="k">类型</span><span class="n">施工占道与围挡超期<span>城市现场 · 68 条</span></span></a>
+          <a class="rel-item" href="/#featured"><span class="k">类型</span><span class="n">临期商品标签覆盖<span>消费维权 · 54 条</span></span></a>
+          <a class="rel-item" href="/#featured"><span class="k">条目</span><span class="n">暴雨积水视频溯源记录<span>辟谣核查 · 已辟谣</span></span></a>
+          <a class="rel-item" href="/#featured"><span class="k">类型</span><span class="n">消防通道转弯半径测量<span>交通出行 · 41 条</span></span></a>
+          <a class="rel-item" href="/#featured"><span class="k">条目</span><span class="n">同校三食堂价目横向对比<span>校园话题 · 已核实</span></span></a>
+          <a class="rel-item" href="/#featured"><span class="k">类型</span><span class="n">聊天记录与纸质表一致性核查<span>职场记录 · 37 条</span></span></a>
+          <a class="rel-item" href="/#featured"><span class="k">条目</span><span class="n">预制菜门店标识差异对照<span>商业争议 · 跟进中</span></span></a>
+          <a class="rel-item" href="/#featured"><span class="k">类型</span><span class="n">开箱视频完整度分级<span>消费维权 · 29 条</span></span></a>
+        </div>
+      </section>
+
+      <!-- 11 补充板块：热度榜单 + 时间线 -->
+      <section class="sec" id="board">
+        <div class="sec-head">
+          <div>
+            <h2>本周爆料热度榜</h2>
+            <p>按查看量与讨论量综合排序，截至 11 月 25 日 18:00</p>
+          </div>
+        </div>
+        <div class="board">
+          <div class="board-row"><span class="rk">1</span><div class="info"><b>预制菜门店标识争议</b><span>商业争议 · 已核实 · 11-21 更新</span></div><span class="heat">2.1 万</span></div>
+          <div class="board-row"><span class="rk">2</span><div class="info"><b>超市称重缺斤少两复称</b><span>消费维权 · 交叉核实 · 11-23 更新</span></div><span class="heat">1.5 万</span></div>
+          <div class="board-row"><span class="rk">3</span><div class="info"><b>城南夜市噪音争议</b><span>城市现场 · 已核实 · 11-25 更新</span></div><span class="heat">1.2 万</span></div>
+          <div class="board-row"><span class="rk">4</span><div class="info"><b>旧片新传核查：暴雨积水视频</b><span>辟谣核查 · 已辟谣 · 11-19 更新</span></div><span class="heat">1.1 万</span></div>
+          <div class="board-row"><span class="rk">5</span><div class="info"><b>校园食堂价格表原片</b><span>校园话题 · 原片完整 · 11-25 更新</span></div><span class="heat">9860</span></div>
+          <div class="board-row"><span class="rk">6</span><div class="info"><b>老街改造施工围挡</b><span>城市现场 · 已核实 · 11-24 更新</span></div><span class="heat">7420</span></div>
+          <div class="board-row"><span class="rk">7</span><div class="info"><b>地铁末班车延时通知</b><span>交通出行 · 待补充 · 11-22 更新</span></div><span class="heat">6310</span></div>
+          <div class="board-row"><span class="rk">8</span><div class="info"><b>排班表连续夜班争议</b><span>职场记录 · 跟进中 · 11-20 更新</span></div><span class="heat">5280</span></div>
+        </div>
+      </section>
+
+      <section class="sec" id="timeline">
+        <div class="sec-head">
+          <div>
+            <h2>事件时间线：城南夜市噪音争议</h2>
+            <p>从首条视频到最新调整方案的关键节点</p>
+          </div>
+        </div>
+        <div class="board" style="padding-top:16px">
+          <div class="tl-item"><time>2026-11-10</time><p>首条现场录音视频出现，拍摄点位于小区临街楼栋，时长 2 分 14 秒。</p></div>
+          <div class="tl-item"><time>2026-11-13</time><p>第二条视频补充夜间人流画面，音量峰值集中在 22 时之后。</p></div>
+          <div class="tl-item"><time>2026-11-17</time><p>物业首次书面回应，确认收到投诉并启动摊位位置核查。</p></div>
+          <div class="tl-item"><time>2026-11-21</time><p>分贝记录截图入库，连续三晚峰值数据可比对。</p></div>
+          <div class="tl-item"><time>2026-11-23</time><p>三处摊位调整方案公布，涉及靠近住宅一侧的烧烤与音响摊位。</p></div>
+          <div class="tl-item"><time>2026-11-25</time><p>第 3 条跟进上线，调整后晚间录音显示峰值时段后移约 40 分钟。</p></div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="side rail" aria-label="辅助栏">
+      <div class="side-card">
+        <h3>今日热榜</h3>
+        <div class="rank-list">
+          <div class="rank-item"><span class="no">1</span><div class="txt"><b>预制菜门店标识争议</b><span>2.1 万查看 · 已核实</span></div></div>
+          <div class="rank-item"><span class="no">2</span><div class="txt"><b>超市称重缺斤少两复称</b><span>1.5 万查看 · 交叉核实</span></div></div>
+          <div class="rank-item"><span class="no">3</span><div class="txt"><b>城南夜市噪音争议</b><span>1.2 万查看 · 已核实</span></div></div>
+          <div class="rank-item"><span class="no">4</span><div class="txt"><b>旧片新传核查</b><span>1.1 万查看 · 已辟谣</span></div></div>
+          <div class="rank-item"><span class="no">5</span><div class="txt"><b>校园食堂价格表原片</b><span>9860 查看 · 原片完整</span></div></div>
+          <div class="rank-item"><span class="no">6</span><div class="txt"><b>老街改造施工围挡</b><span>7420 查看 · 已核实</span></div></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>最近入库</h3>
+        <div class="timeline">
+          <div class="tl-item"><time>今天 18:20</time><p>夜市噪音第 3 条跟进</p></div>
+          <div class="tl-item"><time>今天 15:40</time><p>预制菜门店回应归档</p></div>
+          <div class="tl-item"><time>今天 11:30</time><p>末班车广播降噪版</p></div>
+          <div class="tl-item"><time>昨天 21:10</time><p>第三位顾客复称视频</p></div>
+          <div class="tl-item"><time>11-23</time><p>临期标签争议新入库</p></div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>高频搜索词</h3>
+        <div class="tag-cloud">
+          <a href="/#featured">夜市噪音</a>
+          <a href="/#featured">食堂价目牌</a>
+          <a href="/#featured">复称视频</a>
+          <a href="/#featured">施工围挡</a>
+          <a href="/#featured">旧片新传</a>
+          <a href="/#featured">末班车</a>
+          <a href="/#featured">排班表</a>
+          <a href="/#featured">停车划线</a>
+          <a href="/#featured">预制菜</a>
+          <a href="/#featured">临期标签</a>
+          <a href="/#featured">开箱视频</a>
+          <a href="/#featured">工位监控</a>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>核查说明</h3>
+        <p style="font-size:12.5px;color:var(--text-3);line-height:1.8">条目状态分为已核实、跟进中、待补充三档，依据是原片完整度、证据链闭合程度与是否有正式回应。所有时间戳以 2026 年 11 月 25 日为基准。</p>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- 页尾 -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="/#top">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="37" height="37" rx="11" fill="#1a1f2b" stroke="#ff5a3c" stroke-width="1.6"/>
+            <path d="M11 27V15.5l5.4 6.6 5.6-6.6V27" stroke="#ff8a3d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="28" cy="16" r="2.6" fill="#ff5a3c"/>
+            <path d="M24.5 24.5h6.5" stroke="#3dc9ff" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-text">9l1<em>爆料</em></span>
+        </a>
+        <p>把网络视频线索整理成可回看的档案：原片出处、事实骨架、争议点与后续回应四层对齐，方便判断哪一条值得追到底。</p>
+      </div>
+      <div class="footer-col">
+        <h4>频道</h4>
+        <a href="/#cats">城市现场</a>
+        <a href="/#cats">校园话题</a>
+        <a href="/#cats">消费维权</a>
+        <a href="/#cats">交通出行</a>
+        <a href="/#cats">职场记录</a>
+      </div>
+      <div class="footer-col">
+        <h4>内容</h4>
+        <a href="/#featured">精选档案</a>
+        <a href="/#updates">最新动态</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">观看路径</a>
+        <a href="/#board">热度榜单</a>
+      </div>
+      <div class="footer-col">
+        <h4>参与</h4>
+        <a href="/#comments">社区评论</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#related">相关推荐</a>
+        <a href="/#timeline">事件时间线</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="note">本页条目名称、时间与数据均为内容示例，用于展示档案组织方式；如涉及真实事件，请以权威渠道发布为准。核查基准日期：2026 年 11 月 25 日。</p>
+      <p>© 2026 9l1爆料 · 内容整理与社区共建</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('searchInput');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#cardGrid .card'));
+  var noResult = document.getElementById('noResult');
+  if(!input) return;
+  function filter(){
+    var q = input.value.trim().toLowerCase();
+    var hit = 0;
+    cards.forEach(function(c){
+      var key = (c.getAttribute('data-key')||'') + ' ' + c.textContent;
+      var show = !q || key.toLowerCase().indexOf(q) !== -1;
+      c.style.display = show ? '' : 'none';
+      if(show) hit++;
+    });
+    noResult.classList.toggle('show', hit === 0);
+  }
+  input.addEventListener('input', filter);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ input.value=''; filter(); }
+  });
+})();
+</script>
+</body>
+            </html>
